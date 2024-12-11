@@ -42,13 +42,13 @@ export const ArticleHero = ({
       <div className="flex-1 basis-1/2" {...inspectorProps({ fieldId: 'featuredImage' })}>
         {article.featuredImage && (
           <CtfImage
-            nextImageProps={{ className: 'w-full', priority: true, sizes: undefined }}
+            nextImageProps={{ className: 'w-50', priority: true, sizes: '100vw' }}
             {...article.featuredImage}
           />
         )}
       </div>
 
-      <div className="relative flex flex-1 basis-1/2 flex-col justify-center py-6 px-4 lg:px-16 lg:py-12 xl:px-24">
+      <div className="relative flex flex-1 basis-1/2 flex-col justify-center bg-white p-4 py-6 px-4 dark:bg-gray-800 md:p-6 lg:p-8 lg:px-16 lg:py-12 xl:px-24">
         <div className="mb-2 flex flex-wrap items-center">
           <ArticleAuthor article={article} />
           {isFeatured && (
@@ -72,7 +72,7 @@ export const ArticleHero = ({
             <FormatDate date={publishedDate} />
           </div>
         </div>
-        <h1 className="text-gray-900 dark:text-white" {...inspectorProps({ fieldId: 'title' })}>
+        <h1 className="text-gray-900 dark:text-gray-200" {...inspectorProps({ fieldId: 'title' })}>
           {title}
         </h1>
         {shortDescription && (
@@ -86,7 +86,7 @@ export const ArticleHero = ({
         <div
           className={twMerge(
             'mt-2 text-xs',
-            'text-gray-600 dark:text-gray-400',
+            'text-gray-600 dark:text-gray-300',
             isReversedLayout ? 'lg:hidden' : '',
           )}
           {...inspectorProps({ fieldId: 'publishedDate' })}

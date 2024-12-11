@@ -15,7 +15,7 @@ export const Header = () => {
     <header className="bg-white py-5 dark:bg-gray-900">
       <nav>
         <Container className="flex items-center justify-between">
-          <Link href="/" title={t('common.homepage')}>
+          <Link href="/" title={t('common.homepage')} className="text-gray-900 dark:text-gray-300">
             <BlogLogo />
           </Link>
           <div className="flex items-center gap-4">
