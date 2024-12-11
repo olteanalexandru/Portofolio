@@ -9,6 +9,7 @@ import { Footer } from '@src/components/templates/footer';
 import { Header } from '@src/components/templates/header';
 import initTranslations from '@src/i18n';
 import { locales } from '@src/i18n/config';
+import { ThemeProvider } from '@src/components/shared/theme-context';
 
 export async function generateMetadata() {
   const metatadata: Metadata = {
@@ -54,12 +55,16 @@ export default async function PageLayout({ children, params }: LayoutProps) {
             enableLiveUpdates={preview}
             targetOrigin={allowedOriginList}
           >
-            <main className={`${urbanist.variable} font-sans`}>
-              <Header />
-              {children}
-              <Footer />
-            </main>
-            <div id="portal" className={`${urbanist.variable} font-sans`} />
+            <ThemeProvider>
+              <main
+                className={`${urbanist.variable} bg-white font-sans transition-colors dark:bg-gray-900 dark:text-white`}
+              >
+                <Header />
+                {children}
+                <Footer />
+              </main>
+              <div id="portal" className={`${urbanist.variable} font-sans`} />
+            </ThemeProvider>
           </ContentfulPreviewProvider>
         </TranslationsProvider>
       </body>

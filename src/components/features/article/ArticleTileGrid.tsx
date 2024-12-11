@@ -13,6 +13,7 @@ export const ArticleTileGrid = ({ articles, className, ...props }: ArticleTileGr
     <div
       className={twMerge(
         'grid grid-cols-1 gap-y-4 gap-x-5 md:grid-cols-3 lg:gap-x-12 lg:gap-y-12',
+        'bg-white dark:bg-gray-900',
         className,
       )}
       {...props}

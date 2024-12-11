@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 255 255 255;
+    --foreground: 0 0 0;
+  }
+
+  :root[class~="dark"] {
+    --background: 23 23 23;
+    --foreground: 255 255 255;
+  }
+
+  body {
+    @apply transition-colors duration-300;
+  }
+}
+
+/* Add smooth transitions for all color changes */
+*, *::before, *::after {
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
