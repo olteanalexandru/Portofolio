@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 import { draftMode } from 'next/headers';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-import { ArticleHero, ArticleTileGrid } from '@src/components/features/article';
+import { ArticleTileGrid } from '@src/components/features/article';
 import { Container } from '@src/components/shared/container';
 import TranslationsProvider from '@src/components/shared/i18n/TranslationProvider';
 import initTranslations from '@src/i18n';
@@ -11,6 +10,7 @@ import { locales } from '@src/i18n/config';
 import { PageBlogPostOrder } from '@src/lib/__generated/sdk';
 import { client, previewClient } from '@src/lib/client';
 import { Banner } from '@src/components/features/banner/Banner';
+import { OFWBanner } from '@src/components/features/openForWorkBanner/Banner';
 interface LandingPageProps {
   params: {
     locale: string;
@@ -96,6 +96,9 @@ export default async function Page({ params: { locale } }: LandingPageProps) {
       <Container className="my-8  md:mb-10 lg:mb-16">
         <h2 className="mb-4 md:mb-6">{t('landingPage.latestArticles')}</h2>
         <ArticleTileGrid className="md:grid-cols-2 lg:grid-cols-3" articles={posts} />
+      </Container>
+      <Container>
+        <OFWBanner language={locale as 'en-US' | 'de-DE'} />
       </Container>
     </TranslationsProvider>
   );

@@ -57,6 +57,11 @@
         "title": "Web-Designer",
         "issuer": "Arbeitsministerium und Bildungsministerium"
       }
+    },
+    "openForWork": {
+      "title": "Offen für Projekte und langfristige Zusammenarbeit",
+      "description": "Ich kann Ihnen helfen, Ihre Online-Präsenz mit einer benutzerfreundlichen und ansprechenden Website aufzubauen. Ich habe Erfahrung sowohl in der Frontend- als auch in der Backend-Entwicklung sowie mit Datenbanken und Automatisierung. Ich bin offen für Gespräche und werde den Prozess Schritt für Schritt erklären. Kontaktieren Sie mich, um Ihr Projekt zu besprechen.",
+      "contactButton": "Kontaktieren Sie mich"
     }
   },
   "header": {

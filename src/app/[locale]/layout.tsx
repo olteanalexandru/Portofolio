@@ -4,6 +4,7 @@ import { Urbanist } from 'next/font/google';
 import { draftMode } from 'next/headers';
 
 import { ContentfulPreviewProvider } from '@src/components/features/contentful';
+import { WhatsAppChatWrapper } from '@src/components/features/whatsappChat';
 import TranslationsProvider from '@src/components/shared/i18n/TranslationProvider';
 import { Footer } from '@src/components/templates/footer';
 import { Header } from '@src/components/templates/header';
@@ -40,6 +41,7 @@ export default async function PageLayout({ children, params }: LayoutProps) {
   const { isEnabled: preview } = draftMode();
   const { locale } = params;
   const { resources } = await initTranslations({ locale });
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
 
   return (
     <html lang={locale} dir={dir(locale)}>
@@ -64,6 +66,7 @@ export default async function PageLayout({ children, params }: LayoutProps) {
                 <Footer />
               </main>
               <div id="portal" className={`${urbanist.variable} font-sans`} />
+              {whatsappNumber && <WhatsAppChatWrapper phoneNumber={whatsappNumber} />}
             </ThemeProvider>
           </ContentfulPreviewProvider>
         </TranslationsProvider>

@@ -57,6 +57,11 @@
         "title": "Web Designer",
         "issuer": "Ministry of Labor and Ministry of Education"
       }
+    },
+    "openForWork": {
+      "title": "Open for Projects and Long-term Commitments",
+      "description": "I can help you build your online presence with a user-friendly and engaging website. I have experience with both front-end and back-end development, as well as databases and automation. I am open to discussions and will explain the process every step of the way. Contact me to discuss your project.",
+      "contactButton": "Contact Me"
     }
   },
   "header": {
