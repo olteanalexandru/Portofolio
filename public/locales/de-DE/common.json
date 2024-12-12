@@ -11,7 +11,6 @@
     "regionalSettings": "Regionale Einstellungen",
     "language": "Sprache",
     "languageDrawer": "Sprachschublade umschalten"
-
   },
   "footer": {
     "aboutUs": "über uns",
@@ -21,5 +20,43 @@
   "notFound": {
     "title": "Seite nicht gefunden",
     "description": "Diese Seite scheint nicht zu existieren. <0>Klicken Sie hier</0>, um zur Startseite zurückzukehren."
+  },
+  "banner": {
+    "education": "Ausbildung",
+    "workExperience": "Berufserfahrung",
+    "certifications": "Zertifizierungen",
+    "masters": {
+      "title": "Master in Informatik",
+      "school": "Technische Universität Cluj-Napoca",
+      "thesis": "Thesis: Fortgeschrittenes Ernte-Management-System mit Next.js und Express.js"
+    },
+    "bachelors": {
+      "title": "Bachelor in Agrar-Ingenieurwesen",
+      "school": "Lucian Blaga Universität Sibiu"
+    },
+    "work": {
+      "webDev": {
+        "title": "Web-Entwickler",
+        "company": "Automatify AG"
+      },
+      "qa": {
+        "title": "QA-Analyst",
+        "company": "Quantic Lab"
+      },
+      "freelance": {
+        "title": "Freiberufliche Tätigkeit",
+        "company": "KI-Modell-Überprüfung für Outlier"
+      }
+    },
+    "certs": {
+      "webDev": {
+        "title": "Web- und Backend-Entwickler",
+        "issuer": "Haute Ecole Arc Ingénierie, Swiss WebAcademy"
+      },
+      "webDesign": {
+        "title": "Web-Designer",
+        "issuer": "Arbeitsministerium und Bildungsministerium"
+      }
+    }
   }
 }

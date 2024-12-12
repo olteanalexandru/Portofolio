@@ -10,7 +10,9 @@
     "regionalSettings": "Regional Settings",
     "homepage": "Homepage",
     "language": "Language",
-    "languageDrawer": "Toggle language drawer"
+    "languageDrawer": "Toggle language drawer",
+    "aboutMe": "About Me",
+    "contact": "Contact"
   },
   "footer": {
     "aboutUs": "about us",
@@ -58,5 +60,18 @@
         "issuer": "Ministry of Labor and Ministry of Education"
       }
     }
+  },
+  "contactModal": {
+    "title": "Contact Me",
+    "name": "Your Name",
+    "email": "Your Email",
+    "message": "Your Message",
+    "send": "Send Message",
+    "reachMe": "Or reach me at:"
+  },
+  "aboutModal": {
+    "title": "About Me",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "description2": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
   }
 }

@@ -84,10 +84,7 @@ export default async function Page({ params: { locale } }: LandingPageProps) {
   return (
     <TranslationsProvider locale={locale} resources={resources}>
       <Container>
-        {/* <Link href={`/${page.featuredBlogPost.slug}`}>
-          <ArticleHero article={page.featuredBlogPost} />
-        </Link> */}
-        <Banner />
+        <Banner language={locale as 'en-US' | 'de-DE'} />
       </Container>
 
       {/* Tutorial: contentful-and-the-starter-template.md */}

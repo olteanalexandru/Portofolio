@@ -1,7 +1,79 @@
 import { Container } from '@src/components/shared/container';
 import Image from 'next/image';
 
-export const Banner = () => {
+interface BannerProps {
+  language: 'en-US' | 'de-DE';
+}
+
+export const Banner = ({ language }: BannerProps) => {
+  // Helper function to get translation from common.json
+  const t = (key: string) => {
+    try {
+      // Dynamic import of the correct language file
+      const translations = require(`/public/locales/${language}/common.json`);
+      const parts = key.split('.');
+      let result = translations;
+      for (const part of parts) {
+        if (!result[part]) return `Missing: ${key}`;
+        result = result[part];
+      }
+      return result;
+    } catch (error) {
+      return `Missing: ${key}`;
+    }
+  };
+
+  // Sections structure remains the same
+  const sections = [
+    {
+      id: 'education',
+      title: 'banner.education',
+      content: [
+        {
+          title: 'banner.masters.title',
+          subtitle: 'banner.masters.school',
+          description: 'banner.masters.thesis',
+        },
+        {
+          title: 'banner.bachelors.title',
+          subtitle: 'banner.bachelors.school',
+        },
+      ],
+    },
+    {
+      id: 'work',
+      title: 'banner.workExperience',
+      content: [
+        {
+          title: 'banner.work.webDev.title',
+          subtitle: 'banner.work.webDev.company',
+        },
+        {
+          title: 'banner.work.qa.title',
+          subtitle: 'banner.work.qa.company',
+        },
+        {
+          title: 'banner.work.freelance.title',
+          subtitle: 'banner.work.freelance.company',
+        },
+      ],
+    },
+    {
+      id: 'certs',
+      title: 'banner.certifications',
+      content: [
+        {
+          title: 'banner.certs.webDev.title',
+          subtitle: 'banner.certs.webDev.issuer',
+        },
+        {
+          title: 'banner.certs.webDesign.title',
+          subtitle: 'banner.certs.webDesign.issuer',
+        },
+      ],
+    },
+  ];
+
   return (
     <div className="relative my-4 w-full overflow-hidden rounded-xl bg-white text-gray-900 shadow-lg transition-colors duration-300 dark:bg-gray-900 dark:text-white">
       <Container className="relative z-10">
@@ -23,47 +95,20 @@ export const Banner = () => {
 
           {/* Content - More compact and integrated */}
           <div className="w-full space-y-4 rounded-xl bg-gray-50/50 p-4 backdrop-blur-sm dark:bg-gray-800/50 lg:w-2/3 lg:p-6">
-            {['Education', 'Work Experience', 'Certifications'].map(section => (
-              <div key={section} className="group">
+            {sections.map(section => (
+              <div key={section.id} className="group">
                 <h2 className="mb-2 border-b border-blue-200 pb-1 text-xl font-bold text-blue-600 transition-colors group-hover:text-blue-700 dark:border-blue-800/50 dark:text-blue-400 dark:group-hover:text-blue-300">
-                  {section}
+                  {t(section.title)}
                 </h2>
                 <div className="grid gap-2 sm:grid-cols-2">
-                  {section === 'Education' && (
-                    <>
-                      <InfoCard
-                        title="Master's in Computer Science"
-                        subtitle="Universitatea Tehnica Cluj-Napoca"
-                        description="Advanced Crop Management System"
-                      />
-                      <InfoCard
-                        title="Bachelor's in Agricultural Engineering"
-                        subtitle="Universitatea Lucian Blaga Sibiu"
-                      />
-                    </>
-                  )}
-                  {section === 'Work Experience' && (
-                    <>
-                      <InfoCard title="Web Developer" subtitle="Automatify AG" />
-                      <InfoCard title="QA Analyst" subtitle="Quantic Lab" />
-                      <InfoCard
-                        title="Personal work and Freelancing"
-                        subtitle="Outlier Reviewing AI models"
-                      />
-                    </>
-                  )}
-                  {section === 'Certifications' && (
-                    <>
-                      <InfoCard
-                        title="Web Developer and Back-end Developer"
-                        subtitle="Haute Ecole Arc Ingénierie, Swiss WebAcademy"
-                      />
-                      <InfoCard
-                        title="Web Designer"
-                        subtitle="Ministry of Labor and Ministry of Education"
-                      />
-                    </>
-                  )}
+                  {section.content.map((item, index) => (
+                    <InfoCard
+                      key={index}
+                      title={t(item.title)}
+                      subtitle={t(item.subtitle)}
+                      description={item.description ? t(item.description) : undefined}
+                    />
+                  ))}
                 </div>
               </div>
             ))}
@@ -89,7 +134,11 @@ const InfoCard = ({
   subtitle: string;
   description?: string;
 }) => (
-  <div className="transform rounded-lg bg-white/40 p-2.5 transition-all duration-300 hover:scale-[1.02] hover:bg-white/60 dark:bg-gray-800/40 dark:hover:bg-gray-800/60">
+  <div
+    className={`transform rounded-lg bg-white/40 p-2.5 transition-all duration-300 hover:scale-[1.02] hover:bg-white/60 dark:bg-gray-800/40 dark:hover:bg-gray-800/60 ${
+      title.includes('Missing translation') ? 'border-2 border-red-500/50' : ''
+    }`}
+  >
     <h3 className="text-sm font-semibold text-gray-900 dark:text-white">{title}</h3>
     <p className="mt-0.5 text-xs text-blue-600 dark:text-blue-400">{subtitle}</p>
     {description && (
