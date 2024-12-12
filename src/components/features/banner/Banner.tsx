@@ -102,7 +102,7 @@ export const Banner = ({ language }: BannerProps) => {
           </div>
 
           {/* Content - More compact and integrated */}
-          <div className="-mt-12 w-full space-y-4 rounded-xl bg-gray-50/50 p-4 backdrop-blur-sm dark:bg-gray-800/50 lg:mt-0 lg:mt-0 lg:w-2/3 lg:p-6">
+          <div className="mt-4 flex w-full flex-col items-start gap-4 space-y-4 rounded-xl bg-gray-50/50 p-4 backdrop-blur-sm dark:bg-gray-800/50 lg:mt-0 lg:w-2/3 lg:p-6">
             {sections.map(section => (
               <div key={section.id} className="group">
                 <h2 className="mb-2 border-b border-blue-200 pb-1 text-xl font-bold text-blue-600 transition-colors group-hover:text-blue-700 dark:border-blue-800/50 dark:text-blue-400 dark:group-hover:text-blue-300">

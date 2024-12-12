@@ -21,6 +21,11 @@ export const ArticleTile = ({ article, className }: ArticleTileProps) => {
   const { featuredImage, publishedDate, slug, title } = useContentfulLiveUpdates(article);
   const inspectorProps = useContentfulInspectorMode({ entryId: article.sys.id });
 
+  const isMostPrizedProject = [
+    'Recipe Management Application - NextJs',
+    'Next.js Farm Management System - Efficient Crop and Rotation Management',
+  ].includes(title ?? '');
+
   return (
     <Link className="flex flex-col" href={`/${slug}`}>
       <div
@@ -49,7 +54,7 @@ export const ArticleTile = ({ article, className }: ArticleTileProps) => {
               {title}
             </p>
           )}
-
+          {isMostPrizedProject && <p className="text-xs text-green-600">Most prized project</p>}
           <div className="mt-auto flex items-center">
             <ArticleAuthor article={article} />
             <div

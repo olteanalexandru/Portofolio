@@ -30,6 +30,11 @@ export const ArticleHero = ({
   const inspectorProps = useContentfulInspectorMode({ entryId: article.sys.id });
   const { title, shortDescription, publishedDate } = useContentfulLiveUpdates(article);
 
+  const isMostPrizedProject = [
+    'Recipe Management Application - NextJs',
+    'Next.js Farm Management System - Efficient Crop and Rotation Management',
+  ].includes(title ?? '');
+
   return (
     <div
       className={twMerge(
@@ -61,6 +66,16 @@ export const ArticleHero = ({
               )}
             >
               {t('article.featured')}
+            </ArticleLabel>
+          )}
+          {isMostPrizedProject && (
+            <ArticleLabel
+              className={twMerge(
+                'ml-2 pl-2 text-xs text-green-600',
+                isReversedLayout ? 'lg:left-6 xl:left-12' : 'lg:right-6 xl:right-12',
+              )}
+            >
+              Most prized project
             </ArticleLabel>
           )}
           <div

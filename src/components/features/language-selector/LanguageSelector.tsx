@@ -42,9 +42,9 @@ export const LanguageSelector = () => {
 
     // redirect to the new locale path
     if (currentLocale === i18nConfig.defaultLocale) {
-      router.push('/' + newLocale + currentPathname);
+      router.push('/' + newLocale + (currentPathname || ''));
     } else {
-      router.push(currentPathname.replace(`/${currentLocale}`, `/${newLocale}`));
+      router.push((currentPathname || '').replace(`/${currentLocale}`, `/${newLocale}`));
     }
 
     router.refresh();
