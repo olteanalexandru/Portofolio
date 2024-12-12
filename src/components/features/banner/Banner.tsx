@@ -78,6 +78,10 @@ export const Banner = ({ language }: BannerProps) => {
     <div className="relative my-4 w-full overflow-hidden rounded-xl bg-white text-gray-900 shadow-lg transition-colors duration-300 dark:bg-gray-900 dark:text-white">
       <Container className="relative z-10">
         <div className="flex flex-col items-center gap-6 py-6 lg:flex-row">
+          {/* Name above the profile image on mobile */}
+          <div className="block w-full text-center text-lg font-semibold text-gray-900 dark:text-white lg:hidden lg:text-xl">
+            Alexandru-Florin Oltean
+          </div>
           {/* Profile Image - Centered and overlapping */}
           <div className="w-full lg:-mr-12 lg:w-1/3">
             <div className="relative mx-auto h-[280px] w-[280px]">
@@ -91,14 +95,14 @@ export const Banner = ({ language }: BannerProps) => {
                 sizes="280px"
               />
             </div>
-
-            <div className="mt-4 text-center text-lg font-semibold text-gray-900 dark:text-white lg:text-xl">
+            {/* Name below the profile image on larger screens */}
+            <div className="mt-4 hidden text-center text-lg font-semibold text-gray-900 dark:text-white lg:block lg:text-xl">
               Alexandru-Florin Oltean
             </div>
           </div>
 
           {/* Content - More compact and integrated */}
-          <div className="mt-16 w-full space-y-4 rounded-xl bg-gray-50/50 p-4 backdrop-blur-sm dark:bg-gray-800/50 lg:mt-0 lg:w-2/3 lg:p-6">
+          <div className="-mt-12 w-full space-y-4 rounded-xl bg-gray-50/50 p-4 backdrop-blur-sm dark:bg-gray-800/50 lg:mt-0 lg:mt-0 lg:w-2/3 lg:p-6">
             {sections.map(section => (
               <div key={section.id} className="group">
                 <h2 className="mb-2 border-b border-blue-200 pb-1 text-xl font-bold text-blue-600 transition-colors group-hover:text-blue-700 dark:border-blue-800/50 dark:text-blue-400 dark:group-hover:text-blue-300">
