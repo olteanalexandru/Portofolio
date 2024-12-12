@@ -58,5 +58,54 @@
         "issuer": "Arbeitsministerium und Bildungsministerium"
       }
     }
+  },
+  "header": {
+    "aboutMe": "Über mich",
+    "contact": "Kontakt"
+  },
+  "contactModal": {
+    "title": "Kontaktieren Sie mich",
+    "form": {
+      "name": "Ihr Name",
+      "email": "Ihre E-Mail",
+      "message": "Ihre Nachricht",
+      "send": "Nachricht senden"
+    },
+    "alternateContact": "Oder erreichen Sie mich unter"
+  },
+  "aboutModal": {
+    "title": "Über mich",
+    "description": "Ich bin ein Webentwickler mit einer Leidenschaft für die Entwicklung benutzerfreundlicher und ansprechender Online-Erlebnisse. Ich spezialisiere mich auf Frontend-Entwicklung mit Next.js, um dynamische und interaktive Oberflächen zu erstellen. Ich bin ebenso versiert in Backend-Technologien wie Express und verfüge über umfangreiche Erfahrung in der Arbeit mit verschiedenen Datenbanken, um robuste und skalierbare Webanwendungen zu erstellen.\n\nIch stelle mich gerne Herausforderungen und bearbeite gerne Projekte, die komplizierte Algorithmen und dynamische Funktionalitäten beinhalten, wie mein Thesis-Projekt Crop Management System zeigt. Derzeit widme ich mich der Entwicklung zweier innovativer Next.js-Projekte: dem Farming Project, einem kompletten Remake meines Thesis-Projekts, das die neuesten Technologien nutzt, und dem DietPlanner Project, das darauf ausgelegt ist, Einzelpersonen durch personalisierte Ernährungspläne die Kontrolle über ihre Gesundheit zu geben.\n\nIch suche aktiv nach Möglichkeiten, bei spannenden neuen Projekten mitzuarbeiten. Egal, ob Sie eine überzeugende Online-Präsenz mit einer E-Commerce-Website aufbauen möchten oder Unterstützung bei anderen Webentwicklungsprojekten benötigen, ich freue mich darauf, von Ihnen zu hören. Lassen Sie uns gemeinsam herausfinden, wie wir Ihre Vision verwirklichen können!",
+    "workExperience": [
+      {
+        "title": "Persönliche Projekte & Freiberufliche Tätigkeit",
+        "company": "Outlier",
+        "startDate": "10/2024",
+        "endDate": "Aktuell",
+        "description": "Verbesserung der generativen KI durch Erstellung von Trainingsdaten und Bewertung der Modellleistung. Diese persönlichen Projekte waren im Hintergrund schon viel länger ein Schwerpunkt."
+      },
+      {
+        "title": "QA-Analyst (Funktionstester)",
+        "company": "Quantic Lab",
+        "startDate": "01/05/2024",
+        "endDate": "01/10/2024",
+        "description": "Nachgewiesene Erfolgsbilanz in der Software-Qualitätssicherung, spezialisiert auf Spieletests. Erfahren im Identifizieren, Dokumentieren und Verfolgen von Fehlern, um qualitativ hochwertige Ergebnisse zu gewährleisten."
+      },
+      {
+        "title": "Web-Entwickler",
+        "company": "Automatify AG",
+        "startDate": "04/2023",
+        "endDate": "12/2023",
+        "description": "Verantwortlich für Webentwicklungsaufgaben unter Nutzung von Azure-Diensten wie Logic Apps. Der Schwerpunkt lag hauptsächlich auf der Frontend-Entwicklung, wobei Frameworks wie Svelte, aber auch Vanilla JavaScript verwendet wurden."
+      },
+      {
+        "title": "Trainee JavaScript",
+        "company": "Fortech",
+        "startDate": "04/2020",
+        "endDate": "05/2020",
+        "description": "Ausbildung in JavaScript-Entwicklung."
+      }
+    ],
+    "additionalInfo": ""
   }
 }

@@ -10,9 +10,7 @@
     "regionalSettings": "Regional Settings",
     "homepage": "Homepage",
     "language": "Language",
-    "languageDrawer": "Toggle language drawer",
-    "aboutMe": "About Me",
-    "contact": "Contact"
+    "languageDrawer": "Toggle language drawer"
   },
   "footer": {
     "aboutUs": "about us",
@@ -61,17 +59,53 @@
       }
     }
   },
+  "header": {
+    "aboutMe": "About Me",
+    "contact": "Contact"
+  },
   "contactModal": {
     "title": "Contact Me",
-    "name": "Your Name",
-    "email": "Your Email",
-    "message": "Your Message",
-    "send": "Send Message",
-    "reachMe": "Or reach me at:"
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "message": "Your Message",
+      "send": "Send Message"
+    },
+    "alternateContact": "Or reach me at"
   },
   "aboutModal": {
     "title": "About Me",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    "description2": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    "description": "I'm a web developer passionate about building user-friendly and engaging online experiences. I specialize in frontend development using Next.js to create dynamic and interactive interfaces. I'm equally proficient in backend technologies like Express and have extensive experience working with various databases to build robust and scalable web applications.\n\nI thrive on challenges and enjoy tackling projects that involve intricate algorithms and dynamic functionalities, as demonstrated in my Crop Management System thesis project. Currently, I'm dedicated to developing two innovative Next.js projects: the Farming Project, a complete remake of my thesis project leveraging the latest technologies, and the DietPlanner Project, designed to empower individuals to take control of their health through personalized diet plans.\n\nI'm actively seeking opportunities to collaborate on exciting new projects. Whether you're looking to establish a compelling online presence with an e-commerce site or need assistance with any other web development endeavor, I'm eager to hear from you. Let's connect and explore how we can bring your vision to fruition!",
+    "workExperience": [
+      {
+        "title": "Personal projects & Freelancing",
+        "company": "Outlier",
+        "startDate": "10/2024",
+        "endDate": "Current",
+        "description": "Enhancing Generative AI by creating training data and evaluating model performance. These personal projects have been an ongoing focus in the background for a much longer period."
+      },
+      {
+        "title": "QA Analyst (Func. Tester)",
+        "company": "Quantic Lab",
+        "startDate": "01/05/2024",
+        "endDate": "01/10/2024",
+        "description": "Proven track record in software quality assurance, specializing in game testing. Adept at identifying, documenting, and tracking defects to ensure high-quality deliverables."
+      },
+      {
+        "title": "Web Developer",
+        "company": "Automatify AG",
+        "startDate": "04/2023",
+        "endDate": "12/2023",
+        "description": "Responsible for web development tasks, utilizing Azure Services such as Logic Apps. Focus has primarily been on frontend development, working with frameworks like Svelte but also Vanilla JavaScript."
+      },
+      {
+        "title": "Trainee JavaScript",
+        "company": "Fortech",
+        "startDate": "04/2020",
+        "endDate": "05/2020",
+        "description": "Training in JavaScript development."
+      }
+    ],
+    "additionalInfo": ""
   }
 }

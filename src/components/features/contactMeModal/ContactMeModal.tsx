@@ -4,6 +4,8 @@ import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 import { FaGithub, FaLinkedin, FaPhone } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
+import emailjs from '@emailjs/browser';
+import { toast } from 'react-hot-toast';
 
 interface ContactMeModalProps {
   isOpen: boolean;
@@ -11,17 +13,39 @@ interface ContactMeModalProps {
 }
 
 export const ContactMeModal = ({ isOpen, onClose }: ContactMeModalProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Implement your email sending logic here
-    console.log('Form submitted:', formData);
+    setIsLoading(true);
+
+    try {
+      await emailjs.send(
+        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
+        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+        {
+          to_email: 'oltean.alexandru11@gmail.com',
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        'YOUR_PUBLIC_KEY', // Replace with your EmailJS public key
+      );
+
+      toast.success(t('contactModal.success'));
+      setFormData({ name: '', email: '', message: '' });
+      onClose();
+    } catch (error) {
+      toast.error(t('contactModal.error'));
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -36,7 +60,7 @@ export const ContactMeModal = ({ isOpen, onClose }: ContactMeModalProps) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black bg-opacity-25" />
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
@@ -50,73 +74,90 @@ export const ContactMeModal = ({ isOpen, onClose }: ContactMeModalProps) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-md transform rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-gray-800">
-                <Dialog.Title className="text-lg font-medium leading-6 text-gray-900 dark:text-white">
+              <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-8 text-left align-middle shadow-xl transition-all dark:bg-gray-800">
+                <Dialog.Title className="text-2xl font-bold leading-6 text-gray-900 dark:text-white">
                   {t('contactModal.title')}
                 </Dialog.Title>
-                <div className="mt-4">
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
+                <div className="mt-6">
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-gray-700 dark:text-gray-200">
+                        {t('contactModal.form.name')}
+                      </label>
                       <input
                         type="text"
-                        placeholder={t('contactModal.name')}
-                        className="w-full rounded-md border p-2 dark:bg-gray-700 dark:text-white"
+                        required
+                        className="w-full rounded-lg border border-gray-300 p-3 transition-colors focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
                         value={formData.name}
                         onChange={e => setFormData({ ...formData, name: e.target.value })}
                       />
                     </div>
-                    <div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-gray-700 dark:text-gray-200">
+                        {t('contactModal.form.email')}
+                      </label>
                       <input
                         type="email"
-                        placeholder={t('contactModal.email')}
-                        className="w-full rounded-md border p-2 dark:bg-gray-700 dark:text-white"
+                        required
+                        className="w-full rounded-lg border border-gray-300 p-3 transition-colors focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
                         value={formData.email}
                         onChange={e => setFormData({ ...formData, email: e.target.value })}
                       />
                     </div>
-                    <div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-gray-700 dark:text-gray-200">
+                        {t('contactModal.form.message')}
+                      </label>
                       <textarea
-                        placeholder={t('contactModal.message')}
-                        className="h-32 w-full rounded-md border p-2 dark:bg-gray-700 dark:text-white"
+                        required
+                        className="h-32 w-full rounded-lg border border-gray-300 p-3 transition-colors focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
                         value={formData.message}
                         onChange={e => setFormData({ ...formData, message: e.target.value })}
                       />
                     </div>
                     <button
                       type="submit"
-                      className="rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+                      disabled={isLoading}
+                      className="w-full rounded-lg bg-blue-500 px-4 py-3 font-medium text-white transition-colors hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
                     >
-                      {t('contactModal.send')}
+                      {isLoading ? t('contactModal.form.sending') : t('contactModal.form.send')}
                     </button>
                   </form>
 
-                  <div className="mt-6 border-t pt-6 dark:border-gray-600">
-                    <h3 className="mb-4 text-sm font-medium dark:text-white">
-                      {t('contactModal.reachMe')}
+                  <div className="mt-8 border-t pt-6 dark:border-gray-600">
+                    <h3 className="mb-4 text-sm font-medium text-gray-900 dark:text-white">
+                      {t('contactModal.alternateContact')}
                     </h3>
-                    <div className="flex space-x-4">
+                    <div className="flex space-x-6">
                       <a
-                        href="https://linkedin.com/in/yourprofile"
+                        href="https://www.linkedin.com/in/alexandru-florin-oltean-7b3b6922b/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-600 hover:text-blue-500 dark:text-gray-300"
+                        className="transform text-gray-600 transition-transform hover:scale-110 hover:text-blue-500 dark:text-gray-300"
+                        title="LinkedIn Profile"
                       >
-                        <FaLinkedin size={24} />
+                        <FaLinkedin size={28} />
                       </a>
                       <a
-                        href="https://github.com/yourusername"
+                        href="https://github.com/olteanalexandru"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                        className="transform text-gray-600 transition-transform hover:scale-110 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                        title="GitHub Profile"
                       >
-                        <FaGithub size={24} />
+                        <FaGithub size={28} />
                       </a>
                       <a
-                        href="tel:+1234567890"
-                        className="text-gray-600 hover:text-green-500 dark:text-gray-300"
+                        href="tel:+40755494691"
+                        className="transform text-gray-600 transition-transform hover:scale-110 hover:text-green-500 dark:text-gray-300"
+                        title="+40 755 494 691"
                       >
-                        <FaPhone size={24} />
+                        <FaPhone size={28} />
                       </a>
+                    </div>
+                    <div className="mt-4 text-sm text-gray-600 dark:text-gray-300">
+                      <p>Email: oltean.alexandru11@gmail.com</p>
+                      <p>Phone: +40 755 494 691</p>
                     </div>
                   </div>
                 </div>

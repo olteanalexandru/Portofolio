@@ -13,7 +13,7 @@ import { ContactMeModal } from '@src/components/features/contactMeModal/ContactM
 import { AboutMeModal } from '@src/components/features/aboutMe/AboutMeModal';
 
 export const Header = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
 
@@ -33,16 +33,16 @@ export const Header = () => {
               onClick={() => setIsAboutModalOpen(true)}
               className="text-gray-700 transition-colors duration-200 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
             >
-              {t('common.aboutMe')}
+              {t('aboutModal.title')}
             </button>
             <button
               onClick={() => setIsContactModalOpen(true)}
               className="text-gray-700 transition-colors duration-200 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400"
             >
-              {t('common.contact')}
+              {t('contactModal.title')}
             </button>
             <Link
-              href="https://www.linkedin.com"
+              href="https://www.linkedin.com/in/alexandru-florin-oltean-7b3b6922b/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn Profile"
@@ -51,7 +51,7 @@ export const Header = () => {
               <FaLinkedin size={24} />
             </Link>
             <Link
-              href="https://www.github.com"
+              href="https://github.com/olteanalexandru"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
@@ -59,15 +59,15 @@ export const Header = () => {
             >
               <FaGithub size={24} />
             </Link>
-            <Link
-              href="/assets/CV.pdf"
-              download
+            <a
+              href="/assets/Oltean-Alexandru-Florin.pdf"
+              download="Oltean-Alexandru-Florin-CV.pdf"
               aria-label="Download CV"
               className="flex flex-col items-center text-gray-700 transition-colors duration-200 hover:text-green-500 dark:text-gray-300 dark:hover:text-green-400"
             >
               <FaFileDownload size={24} />
               <span className="mt-0.5 text-[10px] font-medium">cv</span>
-            </Link>
+            </a>
             <div className="flex items-center gap-3 border-l border-gray-200 pl-3 dark:border-gray-700">
               <ThemeToggle />
               <LanguageSelector />
