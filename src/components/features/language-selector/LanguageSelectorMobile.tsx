@@ -33,9 +33,9 @@ export const LanguageSelectorMobile = ({ localeName, onChange, displayName }) =>
         onClick={() => setShowDrawer(currentState => !currentState)}
         aria-expanded={showDrawer}
         aria-controls="locale-drawer"
-        className="text-gray-900 dark:text-gray-300"
+        className="rounded-md p-2 text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
       >
-        <LanguageIcon width="18px" height="18px" variant="secondary" />
+        {currentLocale ? displayName(currentLocale).of(localeName(currentLocale)) : 'EN'}
       </button>
 
       <Portal>
@@ -54,7 +54,7 @@ export const LanguageSelectorMobile = ({ localeName, onChange, displayName }) =>
             aria-modal="true"
             aria-hidden={!showDrawer}
             className={twMerge(
-              'fixed top-0 right-0 z-40 h-full w-[80vw] bg-colorWhite py-8 px-5 duration-300 ease-in-out dark:bg-gray-800',
+              'fixed top-0 right-0 z-40 h-full w-[80vw] bg-colorWhite py-8 px-5 transition-transform duration-300 ease-in-out dark:bg-gray-800',
               showDrawer ? 'translate-x-0' : 'translate-x-full',
             )}
           >
@@ -72,7 +72,7 @@ export const LanguageSelectorMobile = ({ localeName, onChange, displayName }) =>
               {t('common.language')}
             </p>
             <select
-              className="mt-2 block w-full rounded-md border border-gray300 bg-white py-2 px-2 text-sm text-gray-900 dark:bg-gray-700 dark:text-gray-300"
+              className="mt-2 block w-full rounded-md border border-gray300 bg-white py-2 px-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300"
               defaultValue={currentLocale}
               onChange={onChange}
             >

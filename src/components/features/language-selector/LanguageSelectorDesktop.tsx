@@ -93,7 +93,7 @@ export const LanguageSelectorDesktop = ({ localeName, onChange, displayName }) =
         aria-haspopup="true"
         aria-expanded={isOpen}
         aria-controls="menu-locale"
-        className="flex items-center font-normal uppercase text-gray-900 dark:text-gray-300"
+        className="flex items-center rounded-md p-2 font-normal uppercase text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
         onClick={() => setIsOpen(currentState => !currentState)}
       >
         <LanguageIcon width="18px" height="18px" variant="secondary" className="mr-1 ml-1" />
@@ -108,7 +108,7 @@ export const LanguageSelectorDesktop = ({ localeName, onChange, displayName }) =
         <ul
           ref={menuRef}
           className={twMerge(
-            'top-100 absolute right-0 z-10 w-24 translate-y-3 cursor-pointer rounded-md bg-colorWhite text-center text-base shadow dark:bg-gray-800',
+            'top-100 absolute right-0 z-10 w-32 translate-y-3 cursor-pointer rounded-md bg-colorWhite text-center text-base shadow dark:bg-gray-800',
             isOpen ? 'block' : 'hidden',
           )}
           id="menu-locale"
@@ -121,7 +121,7 @@ export const LanguageSelectorDesktop = ({ localeName, onChange, displayName }) =
                 <Link
                   onKeyDown={e => handleMenuItemKeydown(e, index)}
                   role="menuitem"
-                  className="block py-2 text-gray-900 dark:text-gray-300"
+                  className="block py-2 px-4 text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
                   href={
                     pathnameHasLocale
                       ? `/${availableLocale}${pathnameWithoutLocale}`
