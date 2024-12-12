@@ -26,7 +26,7 @@ export const ArticleHero = ({
   isFeatured,
   isReversedLayout = false,
 }: ArticleHeroProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common'); // Ensure the correct namespace is used
   const inspectorProps = useContentfulInspectorMode({ entryId: article.sys.id });
   const { title, shortDescription, publishedDate } = useContentfulLiveUpdates(article);
 
@@ -83,7 +83,7 @@ export const ArticleHero = ({
           href="/"
           className="mt-4 mb-2 inline-block w-fit rounded-md bg-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
         >
-          ← Back to Home
+          {t('article.backToHome')}
         </Link>
         <div
           className={twMerge('mt-2 text-xs text-gray600', isReversedLayout ? 'lg:hidden' : '')}

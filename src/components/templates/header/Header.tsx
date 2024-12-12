@@ -27,15 +27,12 @@ export const Header = () => {
               title={t('common.homepage')}
               className="text-gray-900 transition-colors duration-200 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-100"
             >
-              <div className="hidden sm:block">
+              <div>
                 {typeof PortfolioLogo === 'undefined' ? (
                   <FaCode className="h-10 w-10" />
                 ) : (
                   <PortfolioLogo className="h-10 w-10" />
                 )}
-              </div>
-              <div className="block text-xl font-bold text-gray-900 dark:text-gray-300 sm:hidden">
-                {i18n.language.toUpperCase()}
               </div>
             </Link>
             <div className="mt-3 flex items-center gap-6 sm:mt-0">

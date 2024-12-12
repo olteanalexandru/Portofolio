@@ -79,7 +79,7 @@ export const Banner = ({ language }: BannerProps) => {
       <Container className="relative z-10">
         <div className="flex flex-col items-center gap-6 py-6 lg:flex-row">
           {/* Profile Image - Centered and overlapping */}
-          <div className="-mb-12 w-full lg:mb-0 lg:-mr-12 lg:w-1/3">
+          <div className="w-full lg:-mr-12 lg:w-1/3">
             <div className="relative mx-auto h-[280px] w-[280px]">
               <div className="absolute inset-0 rounded-full bg-blue-500/10 dark:bg-blue-500/5" />
               <Image
@@ -91,10 +91,14 @@ export const Banner = ({ language }: BannerProps) => {
                 sizes="280px"
               />
             </div>
+
+            <div className="mt-4 text-center text-lg font-semibold text-gray-900 dark:text-white lg:text-xl">
+              Alexandru-Florin Oltean
+            </div>
           </div>
 
           {/* Content - More compact and integrated */}
-          <div className="w-full space-y-4 rounded-xl bg-gray-50/50 p-4 backdrop-blur-sm dark:bg-gray-800/50 lg:w-2/3 lg:p-6">
+          <div className="mt-16 w-full space-y-4 rounded-xl bg-gray-50/50 p-4 backdrop-blur-sm dark:bg-gray-800/50 lg:mt-0 lg:w-2/3 lg:p-6">
             {sections.map(section => (
               <div key={section.id} className="group">
                 <h2 className="mb-2 border-b border-blue-200 pb-1 text-xl font-bold text-blue-600 transition-colors group-hover:text-blue-700 dark:border-blue-800/50 dark:text-blue-400 dark:group-hover:text-blue-300">

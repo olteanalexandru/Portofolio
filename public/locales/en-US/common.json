@@ -1,7 +1,8 @@
 {
   "article": {
     "relatedArticles": "Related articles",
-    "featured": "featured"
+    "featured": "featured",
+    "backToHome": "Back to Home"
   },
   "landingPage": {
     "latestArticles": "My latest projects (more on github)"

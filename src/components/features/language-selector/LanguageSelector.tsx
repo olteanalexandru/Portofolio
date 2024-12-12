@@ -30,6 +30,8 @@ export const LanguageSelector = () => {
 
     if (isChangeEvent(e)) {
       newLocale = e.target.value;
+    } else {
+      newLocale = (e.target as HTMLSelectElement).value; // Handle synthetic event
     }
 
     // set cookie for next-i18n-router

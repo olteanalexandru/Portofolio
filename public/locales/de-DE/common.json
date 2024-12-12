@@ -1,7 +1,8 @@
 {
   "article": {
     "relatedArticles": "Verwandte Artikel",
-    "featured": "gekennzeichnet"
+    "featured": "gekennzeichnet",
+    "backToHome": "Zurück zur Startseite"
   },
   "landingPage": {
     "latestArticles": "Mein neuestes Projekt"
