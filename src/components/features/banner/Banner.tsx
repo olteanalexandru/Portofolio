@@ -41,6 +41,20 @@ export const Banner = ({ language }: BannerProps) => {
       ],
     },
     {
+      id: 'certs',
+      title: 'banner.certifications',
+      content: [
+        {
+          title: 'banner.certs.webDev.title',
+          subtitle: 'banner.certs.webDev.issuer',
+        },
+        {
+          title: 'banner.certs.webDesign.title',
+          subtitle: 'banner.certs.webDesign.issuer',
+        },
+      ],
+    },
+    {
       id: 'work',
       title: 'banner.workExperience',
       content: [
@@ -55,20 +69,6 @@ export const Banner = ({ language }: BannerProps) => {
         {
           title: 'banner.work.freelance.title',
           subtitle: 'banner.work.freelance.company',
-        },
-      ],
-    },
-    {
-      id: 'certs',
-      title: 'banner.certifications',
-      content: [
-        {
-          title: 'banner.certs.webDev.title',
-          subtitle: 'banner.certs.webDev.issuer',
-        },
-        {
-          title: 'banner.certs.webDesign.title',
-          subtitle: 'banner.certs.webDesign.issuer',
         },
       ],
     },

@@ -6,6 +6,7 @@ import {
 } from '@contentful/live-preview/react';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
+import Link from 'next/link';
 
 import { ArticleAuthor } from '@src/components/features/article/ArticleAuthor';
 import { ArticleLabel } from '@src/components/features/article/ArticleLabel';
@@ -78,6 +79,12 @@ export const ArticleHero = ({
             {shortDescription}
           </p>
         )}
+        <Link
+          href="/"
+          className="mt-4 mb-2 inline-block w-fit rounded-md bg-gray-200 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
+        >
+          ← Back to Home
+        </Link>
         <div
           className={twMerge('mt-2 text-xs text-gray600', isReversedLayout ? 'lg:hidden' : '')}
           {...inspectorProps({ fieldId: 'publishedDate' })}

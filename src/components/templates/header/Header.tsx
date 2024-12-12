@@ -2,10 +2,10 @@
 
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import { FaGithub, FaLinkedin, FaFileDownload } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaFileDownload, FaCode } from 'react-icons/fa';
 import { useState } from 'react';
 
-import BlogLogo from '@icons/blog-logo.svg';
+import PortfolioLogo from '@public/icons/portfolio-logo.svg';
 import { LanguageSelector } from '@src/components/features/language-selector';
 import { ThemeToggle } from '@src/components/features/theme-toggle';
 import { Container } from '@src/components/shared/container';
@@ -26,7 +26,11 @@ export const Header = () => {
             title={t('common.homepage')}
             className="text-gray-900 transition-colors duration-200 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-100"
           >
-            {/* <BlogLogo /> */}
+            {typeof PortfolioLogo === 'undefined' ? (
+              <FaCode className="h-10 w-10" />
+            ) : (
+              <PortfolioLogo className="h-10 w-10" />
+            )}
           </Link>
           <div className="flex items-center gap-6">
             <button

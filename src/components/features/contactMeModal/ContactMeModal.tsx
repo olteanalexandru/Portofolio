@@ -3,6 +3,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 import { FaGithub, FaLinkedin, FaPhone } from 'react-icons/fa';
+import { IoClose } from 'react-icons/io5'; // Add this import at the top
 import { useTranslation } from 'react-i18next';
 import emailjs from '@emailjs/browser';
 import { toast } from 'react-hot-toast';
@@ -75,9 +76,17 @@ export const ContactMeModal = ({ isOpen, onClose }: ContactMeModalProps) => {
               leaveTo="opacity-0 scale-95"
             >
               <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-8 text-left align-middle shadow-xl transition-all dark:bg-gray-800">
-                <Dialog.Title className="text-2xl font-bold leading-6 text-gray-900 dark:text-white">
-                  {t('contactModal.title')}
-                </Dialog.Title>
+                <div className="flex items-center justify-between">
+                  <Dialog.Title className="text-2xl font-bold leading-6 text-gray-900 dark:text-white">
+                    {t('contactModal.title')}
+                  </Dialog.Title>
+                  <button
+                    onClick={onClose}
+                    className="rounded-lg p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700 dark:hover:text-gray-300"
+                  >
+                    <IoClose size={24} />
+                  </button>
+                </div>
                 <div className="mt-6">
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <div className="space-y-2">
