@@ -10,7 +10,7 @@ import initTranslations from '@src/i18n';
 import { locales } from '@src/i18n/config';
 import { PageBlogPostOrder } from '@src/lib/__generated/sdk';
 import { client, previewClient } from '@src/lib/client';
-
+import { Banner } from '@src/components/features/banner/Banner';
 interface LandingPageProps {
   params: {
     locale: string;
@@ -84,9 +84,10 @@ export default async function Page({ params: { locale } }: LandingPageProps) {
   return (
     <TranslationsProvider locale={locale} resources={resources}>
       <Container>
-        <Link href={`/${page.featuredBlogPost.slug}`}>
+        {/* <Link href={`/${page.featuredBlogPost.slug}`}>
           <ArticleHero article={page.featuredBlogPost} />
-        </Link>
+        </Link> */}
+        <Banner />
       </Container>
 
       {/* Tutorial: contentful-and-the-starter-template.md */}

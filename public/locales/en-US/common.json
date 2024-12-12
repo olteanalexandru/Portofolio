@@ -20,5 +20,43 @@
   "notFound": {
     "title": "Page not found",
     "description": "This page doesn't seem to exist. <0>Click here</0> to go back the homepage."
+  },
+  "banner": {
+    "education": "Education",
+    "workExperience": "Work Experience",
+    "certifications": "Certifications",
+    "masters": {
+      "title": "Master's in Computer Science",
+      "school": "Universitatea Tehnica din Cluj-Napoca",
+      "thesis": "Thesis: Advanced Crop Management System using Next.js and Express.js"
+    },
+    "bachelors": {
+      "title": "Bachelor's in Agricultural Engineering",
+      "school": "Universitatea Lucian Blaga din Sibiu"
+    },
+    "work": {
+      "webDev": {
+        "title": "Web Developer",
+        "company": "Automatify AG"
+      },
+      "qa": {
+        "title": "QA Analyst",
+        "company": "Quantic Lab"
+      },
+      "freelance": {
+        "title": "Personal work and Freelancing",
+        "company": "Outlier Reviewing AI models"
+      }
+    },
+    "certs": {
+      "webDev": {
+        "title": "Web Developer and Back-end Developer",
+        "issuer": "Haute Ecole Arc Ingénierie, Swiss WebAcademy"
+      },
+      "webDesign": {
+        "title": "Web Designer",
+        "issuer": "Ministry of Labor and Ministry of Education"
+      }
+    }
   }
 }
