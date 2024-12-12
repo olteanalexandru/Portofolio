@@ -27,15 +27,15 @@ export const ContactMeModal = ({ isOpen, onClose }: ContactMeModalProps) => {
 
     try {
       await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+        'service_ynv83op',
+        'template_3oljtxo',
         {
           to_email: 'oltean.alexandru11@gmail.com',
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
         },
-        'YOUR_PUBLIC_KEY', // Replace with your EmailJS public key
+        '92Cb78cmp5MUyYktO',
       );
 
       toast.success(t('contactModal.success'));
