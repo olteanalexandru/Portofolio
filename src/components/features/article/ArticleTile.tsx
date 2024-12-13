@@ -7,7 +7,6 @@ import {
 import Link from 'next/link';
 import { HTMLProps } from 'react';
 import { twMerge } from 'tailwind-merge';
-
 import { ArticleAuthor } from '@src/components/features/article/ArticleAuthor';
 import { CtfImage } from '@src/components/features/contentful';
 import { FormatDate } from '@src/components/shared/format-date';
@@ -54,7 +53,7 @@ export const ArticleTile = ({ article, className }: ArticleTileProps) => {
               {title}
             </p>
           )}
-          {isMostPrizedProject && <p className="text-xs text-green-600">Most prized project</p>}
+          {isMostPrizedProject && <p className="text-xs text-green-600">Top project</p>}
           <div className="mt-auto flex items-center">
             <ArticleAuthor article={article} />
             <div

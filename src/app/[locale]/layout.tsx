@@ -49,7 +49,7 @@ export default async function PageLayout({ children, params }: LayoutProps) {
         <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5" />
       </head>
 
-      <body>
+      <body className={urbanist.variable}>
         <TranslationsProvider locale={locale} resources={resources}>
           <ContentfulPreviewProvider
             locale={locale}
@@ -58,14 +58,12 @@ export default async function PageLayout({ children, params }: LayoutProps) {
             targetOrigin={allowedOriginList}
           >
             <ThemeProvider>
-              <main
-                className={`${urbanist.variable} bg-white font-sans transition-colors dark:bg-gray-900 dark:text-white`}
-              >
+              <main className="bg-white font-sans transition-colors dark:bg-gray-900 dark:text-white">
                 <Header />
                 {children}
                 <Footer />
               </main>
-              <div id="portal" className={`${urbanist.variable} font-sans`} />
+              <div id="portal" className="font-sans" />
               {whatsappNumber && <WhatsAppChatWrapper phoneNumber={whatsappNumber} />}
             </ThemeProvider>
           </ContentfulPreviewProvider>

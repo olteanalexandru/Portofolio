@@ -7,6 +7,9 @@ import { IoClose } from 'react-icons/io5'; // Add this import at the top
 import { useTranslation } from 'react-i18next';
 import emailjs from '@emailjs/browser';
 import { toast } from 'react-hot-toast';
+import { Urbanist } from 'next/font/google';
+
+const urbanist = Urbanist({ subsets: ['latin'], variable: '--font-urbanist' });
 
 interface ContactMeModalProps {
   isOpen: boolean;
@@ -51,7 +54,7 @@ export const ContactMeModal = ({ isOpen, onClose }: ContactMeModalProps) => {
 
   return (
     <Transition appear show={isOpen} as={Fragment}>
-      <Dialog as="div" className="relative z-50" onClose={onClose}>
+      <Dialog as="div" className={`${urbanist.variable} relative z-50`} onClose={onClose}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -127,7 +130,7 @@ export const ContactMeModal = ({ isOpen, onClose }: ContactMeModalProps) => {
                     <button
                       type="submit"
                       disabled={isLoading}
-                      className="w-full rounded-lg bg-blue-500 px-4 py-3 font-medium text-white transition-colors hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
+                      className="w-full rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 px-4 py-3 font-medium text-white transition-colors hover:from-blue-600 hover:to-purple-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
                     >
                       {isLoading ? t('contactModal.form.sending') : t('contactModal.form.send')}
                     </button>

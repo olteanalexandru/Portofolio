@@ -61,12 +61,19 @@ export const AboutMeModal = ({ isOpen, onClose }: AboutMeModalProps) => {
                   </button>
                 </div>
 
-                <div className="space-y-8">
+                <div className="space-y-12 px-4">
                   {/* About Me Description */}
-                  <div className="prose max-w-none dark:prose-invert">
-                    <p className="whitespace-pre-line text-lg leading-relaxed tracking-wide text-gray-600 dark:text-gray-300">
-                      {t('aboutModal.description')}
-                    </p>
+                  <div className="prose max-w-none space-y-6 dark:prose-invert">
+                    {t('aboutModal.description')
+                      .split('\n\n')
+                      .map((paragraph, index) => (
+                        <p
+                          key={index}
+                          className="indent-6 text-lg leading-relaxed tracking-wide text-gray-600 dark:text-gray-300"
+                        >
+                          {paragraph}
+                        </p>
+                      ))}
                   </div>
 
                   {/* Work Experience Section */}

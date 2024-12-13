@@ -77,14 +77,14 @@ export const Banner = ({ language }: BannerProps) => {
   return (
     <div className="relative my-4 w-full overflow-hidden rounded-xl bg-white text-gray-900 shadow-lg transition-colors duration-300 dark:bg-gray-900 dark:text-white">
       <Container className="relative z-10">
-        <div className="flex flex-col items-center gap-6 py-6 lg:flex-row">
+        <div className="flex flex-col items-center gap-0 py-3 lg:flex-row lg:gap-6 lg:py-6">
           {/* Name above the profile image on mobile */}
           <div className="block w-full text-center text-lg font-semibold text-gray-900 dark:text-white lg:hidden lg:text-xl">
             Alexandru-Florin Oltean
           </div>
-          {/* Profile Image - Centered and overlapping */}
-          <div className="w-full lg:-mr-12 lg:w-1/3">
-            <div className="relative mx-auto h-[280px] w-[280px]">
+          {/* Profile Image - Centered with overlap */}
+          <div className="relative z-10 w-full lg:-mr-12 lg:w-1/3">
+            <div className="relative mx-auto -mb-12 h-[250px] w-[250px] lg:mb-0 lg:h-[280px] lg:w-[280px]">
               <div className="absolute inset-0 rounded-full bg-blue-500/10 dark:bg-blue-500/5" />
               <Image
                 src="/assets/me.png"
@@ -92,7 +92,7 @@ export const Banner = ({ language }: BannerProps) => {
                 fill
                 className="rounded-full object-cover object-center p-1"
                 priority
-                sizes="280px"
+                sizes="(max-width: 768px) 200px, 280px"
               />
             </div>
             {/* Name below the profile image on larger screens */}
@@ -101,14 +101,14 @@ export const Banner = ({ language }: BannerProps) => {
             </div>
           </div>
 
-          {/* Content - More compact and integrated */}
-          <div className="mt-4 flex w-full flex-col items-start gap-4 space-y-4 rounded-xl bg-gray-50/50 p-4 backdrop-blur-sm dark:bg-gray-800/50 lg:mt-0 lg:w-2/3 lg:p-6">
+          {/* Content - Adjusted for mobile */}
+          <div className="relative z-20 mt-0 flex w-full flex-col items-start gap-3 space-y-3 rounded-xl bg-gray-50/50 p-3 pt-16 backdrop-blur-sm dark:bg-gray-800/50 lg:mt-0 lg:w-2/3 lg:gap-4 lg:space-y-4 lg:p-6 lg:pt-6">
             {sections.map(section => (
-              <div key={section.id} className="group">
-                <h2 className="mb-2 border-b border-blue-200 pb-1 text-xl font-bold text-blue-600 transition-colors group-hover:text-blue-700 dark:border-blue-800/50 dark:text-blue-400 dark:group-hover:text-blue-300">
+              <div key={section.id} className="group w-full">
+                <h2 className="mb-2 border-b border-blue-200 pb-1 text-lg font-bold text-blue-600 transition-colors group-hover:text-blue-700 dark:border-blue-800/50 dark:text-blue-400 dark:group-hover:text-blue-300 lg:text-xl">
                   {t(section.title)}
                 </h2>
-                <div className="grid gap-2 sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                   {section.content.map((item, index) => (
                     <InfoCard
                       key={index}
