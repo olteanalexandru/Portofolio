@@ -34,7 +34,7 @@ export const ArticleContent = ({ article }: ArticleContentProps) => {
   return (
     <div
       {...inspectorProps({ fieldId: 'content' })}
-      className="p-4 text-gray-900 dark:text-gray-200 md:p-6 lg:p-8"
+      className="p-4 text-gray-900 dark:text-gray-200 md:p-6 lg:p-8 [&_ul]:ml-6 [&_ul]:list-disc [&_ul]:dark:text-gray-200 [&_ol]:ml-6 [&_ol]:list-decimal [&_ol]:dark:text-gray-200 [&_li]:my-1 [&_code]:rounded-md [&_code]:bg-gray-100 [&_code]:px-1 [&_code]:py-0.5 [&_code]:text-gray-800 dark:[&_code]:bg-gray-800 dark:[&_code]:text-gray-200"
     >
       {article.title &&
         [

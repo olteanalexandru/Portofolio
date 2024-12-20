@@ -53,14 +53,16 @@ export const ArticleTile = ({ article, className }: ArticleTileProps) => {
               {title}
             </p>
           )}
-          {isMostPrizedProject && <p className="text-xs text-green-600">Top project</p>}
-          <div className="mt-auto flex items-center">
-            <ArticleAuthor article={article} />
-            <div
-              className={twMerge('ml-auto pl-2 text-xs text-gray-600 dark:text-gray-300')}
-              {...inspectorProps({ fieldId: 'publishedDate' })}
-            >
-              <FormatDate date={publishedDate} />
+          <div className="mt-auto flex flex-col">
+            {isMostPrizedProject && <p className="mb-2 text-xs text-green-600">Top project</p>}
+            <div className="flex items-center">
+              <ArticleAuthor article={article} />
+              <div
+                className={twMerge('ml-auto pl-2 text-xs text-gray-600 dark:text-gray-300')}
+                {...inspectorProps({ fieldId: 'publishedDate' })}
+              >
+                <FormatDate date={publishedDate} />
+              </div>
             </div>
           </div>
         </div>
