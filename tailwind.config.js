@@ -49,6 +49,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['var(--font-urbanist)', ...fontFamily.sans],
+        urbanist: ['var(--font-urbanist)'],
       },
       backgroundColor: {
         dark: 'var(--dark-bg)',
