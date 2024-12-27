@@ -46,6 +46,7 @@ const imagesByProject = {
     '/farm/12.png',
     '/farm/13.png',
   ],
+  shop: ['/shop/1.png', '/shop/2.png', '/shop/3.png', '/shop/4.png', '/shop/5.png'],
 };
 
 const SliderComponent = ({ projectType }: SliderProps) => {
