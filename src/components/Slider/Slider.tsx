@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 
 interface SliderProps {
-  projectType: 'recipe' | 'farm';
+  projectType: 'recipe' | 'farm' | 'shop';
 }
 
 const imagesByProject = {

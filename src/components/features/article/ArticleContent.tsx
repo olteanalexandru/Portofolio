@@ -25,7 +25,8 @@ export const ArticleContent = ({ article }: ArticleContentProps) => {
         return 'recipe';
       case 'Next.js Farm Management System - Efficient Crop and Rotation Management':
         return 'farm';
-
+      case 'Next.js E-commerce Store':
+        return 'shop';
       default:
         return 'farm';
     }
@@ -40,6 +41,7 @@ export const ArticleContent = ({ article }: ArticleContentProps) => {
         [
           'Recipe Management Application - NextJs',
           'Next.js Farm Management System - Efficient Crop and Rotation Management',
+          'Next.js E-commerce Store',
         ].includes(article.title) && <Slider projectType={getProjectType()} />}
       <CtfRichText json={content?.json} links={content?.links} />
     </div>
