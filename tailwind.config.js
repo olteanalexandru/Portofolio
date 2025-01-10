@@ -12,10 +12,27 @@ const colors = Object.entries(tokens).reduce((acc, [key, value]) => {
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    colors,
     extend: {
+      colors: {
+        ...colors,
+        dark: {
+          bg: '#121212',
+          text: '#ffffff',
+          primary: '#2563eb',
+          secondary: '#4b5563',
+        },
+        light: {
+          bg: '#ffffff',
+          text: '#000000',
+          primary: '#3b82f6',
+          secondary: '#6b7280',
+        },
+        background: 'rgb(var(--background) / <alpha-value>)',
+        foreground: 'rgb(var(--foreground) / <alpha-value>)',
+      },
       maxWidth: {
         '8xl': '90rem',
       },
@@ -32,7 +49,12 @@ module.exports = {
       },
       fontFamily: {
         sans: ['var(--font-urbanist)', ...fontFamily.sans],
+        urbanist: ['var(--font-urbanist)'],
       },
+      backgroundColor: {
+        dark: 'var(--dark-bg)',
+        light: 'var(--light-bg)',
+      }
     },
   },
   plugins: [require('@tailwindcss/typography')],

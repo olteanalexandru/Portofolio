@@ -1,10 +1,11 @@
 {
   "article": {
     "relatedArticles": "Related articles",
-    "featured": "featured"
+    "featured": "featured",
+    "backToHome": "Return Home"
   },
   "landingPage": {
-    "latestArticles": "Latest articles"
+    "latestArticles": "My latest projects (more on github)"
   },
   "common": {
     "regionalSettings": "Regional Settings",
@@ -20,5 +21,97 @@
   "notFound": {
     "title": "Page not found",
     "description": "This page doesn't seem to exist. <0>Click here</0> to go back the homepage."
+  },
+  "banner": {
+    "education": "Education",
+    "workExperience": "Work Experience",
+    "certifications": "Certifications",
+    "masters": {
+      "title": "Master's in Computer Science",
+      "school": "Universitatea Tehnica din Cluj-Napoca",
+      "thesis": "Thesis: Advanced Crop Management System using Next.js and Express.js"
+    },
+    "bachelors": {
+      "title": "Bachelor's in Agricultural Engineering",
+      "school": "Universitatea Lucian Blaga din Sibiu"
+    },
+    "work": {
+      "webDev": {
+        "title": "Web Developer",
+        "company": "Automatify AG"
+      },
+      "qa": {
+        "title": "QA Analyst",
+        "company": "Quantic Lab"
+      },
+      "freelance": {
+        "title": "Personal work and Freelancing",
+        "company": "Outlier Reviewing AI models"
+      }
+    },
+    "certs": {
+      "webDev": {
+        "title": "Web Developer and Back-end Developer",
+        "issuer": "Haute Ecole Arc Ingénierie, Swiss WebAcademy"
+      },
+      "webDesign": {
+        "title": "Web Designer",
+        "issuer": "Ministry of Labor and Ministry of Education"
+      }
+    },
+    "openForWork": {
+      "title": "Open for Projects and Long-term Commitments",
+      "description": "I can help you build your online presence with a user-friendly and engaging website. I have experience with both front-end and back-end development, as well as databases and automation. I am open to discussions and will explain the process every step of the way. Contact me to discuss your project.",
+      "contactButton": "Contact Me"
+    }
+  },
+  "header": {
+    "aboutMe": "About Me",
+    "contact": "Contact"
+  },
+  "contactModal": {
+    "title": "Contact Me",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "message": "Your Message",
+      "send": "Send Message"
+    },
+    "alternateContact": "Or reach me at"
+  },
+  "aboutModal": {
+    "title": "About Me",
+    "description": "I'm a web developer passionate about building user-friendly and engaging online experiences. I specialize in frontend development using Next.js to create dynamic and interactive interfaces. I'm equally proficient in backend technologies like Express and have extensive experience working with various databases to build robust and scalable web applications.\n\nI thrive on challenges and enjoy tackling projects that involve intricate algorithms and dynamic functionalities, as demonstrated in my Crop Management System thesis project. Currently, I'm dedicated to developing two innovative Next.js projects: the Farming Project, a complete remake of my thesis project leveraging the latest technologies, and the DietPlanner Project, designed to empower individuals to take control of their health through personalized diet plans.\n\nI'm actively seeking opportunities to collaborate on exciting new projects. Whether you're looking to establish a compelling online presence with an e-commerce site or need assistance with any other web development endeavor, I'm eager to hear from you. Let's connect and explore how we can bring your vision to fruition!",
+    "workExperience": [
+      {
+        "title": "Personal projects & Freelancing",
+        "company": "Outlier",
+        "startDate": "10/2024",
+        "endDate": "Current",
+        "description": "Enhancing Generative AI by creating training data and evaluating model performance. These personal projects have been an ongoing focus in the background for a much longer period."
+      },
+      {
+        "title": "QA Analyst (Func. Tester)",
+        "company": "Quantic Lab",
+        "startDate": "01/05/2024",
+        "endDate": "01/10/2024",
+        "description": "Proven track record in software quality assurance, specializing in game testing. Adept at identifying, documenting, and tracking defects to ensure high-quality deliverables."
+      },
+      {
+        "title": "Web Developer",
+        "company": "Automatify AG",
+        "startDate": "04/2023",
+        "endDate": "12/2023",
+        "description": "Responsible for web development tasks, utilizing Azure Services such as Logic Apps. Focus has primarily been on frontend development, working with frameworks like Svelte but also Vanilla JavaScript."
+      },
+      {
+        "title": "Trainee JavaScript",
+        "company": "Fortech",
+        "startDate": "04/2020",
+        "endDate": "05/2020",
+        "description": "Training in JavaScript development."
+      }
+    ],
+    "additionalInfo": ""
   }
 }

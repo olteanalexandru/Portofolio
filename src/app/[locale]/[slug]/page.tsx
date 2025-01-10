@@ -57,13 +57,16 @@ export default async function Page({ params: { locale, slug } }: BlogPageProps) 
       <Container>
         <ArticleHero article={blogPost} isFeatured={isFeatured} isReversedLayout={true} />
       </Container>
-      <Container className="mt-8 max-w-4xl">
+      <Container className="mt-8 max-w-4xl p-4 md:p-6 lg:p-8">
         <ArticleContent article={blogPost} />
       </Container>
       {relatedPosts && (
-        <Container className="mt-8 max-w-5xl">
-          <h2 className="mb-4 md:mb-6">{t('article.relatedArticles')}</h2>
-          <ArticleTileGrid className="md:grid-cols-2" articles={relatedPosts} />
+        <Container className="mt-8 max-w-5xl p-4 md:p-6 lg:p-8">
+          {/* <h2 className="mb-4 md:mb-6">{t('article.relatedArticles')}</h2> */}
+          <ArticleTileGrid
+            className="text-gray-900 dark:text-gray-200 md:grid-cols-2"
+            articles={relatedPosts}
+          />
         </Container>
       )}
     </>

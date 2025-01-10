@@ -4,11 +4,13 @@ import { Urbanist } from 'next/font/google';
 import { draftMode } from 'next/headers';
 
 import { ContentfulPreviewProvider } from '@src/components/features/contentful';
+import { WhatsAppChatWrapper } from '@src/components/features/whatsappChat';
 import TranslationsProvider from '@src/components/shared/i18n/TranslationProvider';
 import { Footer } from '@src/components/templates/footer';
 import { Header } from '@src/components/templates/header';
 import initTranslations from '@src/i18n';
 import { locales } from '@src/i18n/config';
+import { ThemeProvider } from '@src/components/shared/theme-context';
 
 export async function generateMetadata() {
   const metatadata: Metadata = {
@@ -39,6 +41,7 @@ export default async function PageLayout({ children, params }: LayoutProps) {
   const { isEnabled: preview } = draftMode();
   const { locale } = params;
   const { resources } = await initTranslations({ locale });
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
 
   return (
     <html lang={locale} dir={dir(locale)}>
@@ -46,7 +49,7 @@ export default async function PageLayout({ children, params }: LayoutProps) {
         <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5" />
       </head>
 
-      <body>
+      <body className={urbanist.variable}>
         <TranslationsProvider locale={locale} resources={resources}>
           <ContentfulPreviewProvider
             locale={locale}
@@ -54,12 +57,15 @@ export default async function PageLayout({ children, params }: LayoutProps) {
             enableLiveUpdates={preview}
             targetOrigin={allowedOriginList}
           >
-            <main className={`${urbanist.variable} font-sans`}>
-              <Header />
-              {children}
-              <Footer />
-            </main>
-            <div id="portal" className={`${urbanist.variable} font-sans`} />
+            <ThemeProvider>
+              <main className="bg-white font-sans transition-colors dark:bg-gray-900 dark:text-white">
+                <Header />
+                {children}
+                <Footer />
+              </main>
+              <div id="portal" className="font-sans" />
+              {whatsappNumber && <WhatsAppChatWrapper phoneNumber={whatsappNumber} />}
+            </ThemeProvider>
           </ContentfulPreviewProvider>
         </TranslationsProvider>
       </body>

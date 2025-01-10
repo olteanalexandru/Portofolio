@@ -1,85 +1,86 @@
 'use client';
 
-import { LanguageIcon, CloseIcon } from '@contentful/f36-icons';
+import { ChevronDownIcon, ChevronUpIcon } from '@contentful/f36-icons';
 import { useCurrentLocale } from 'next-i18n-router/client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import FocusLock from 'react-focus-lock';
 import { useTranslation } from 'react-i18next';
 import { twMerge } from 'tailwind-merge';
 
-import { Portal } from '@src/components/shared/portal';
 import i18nConfig, { locales } from '@src/i18n/config';
+
+const useClickOutside = (ref, setIsOpen) => {
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [ref, setIsOpen]);
+};
 
 export const LanguageSelectorMobile = ({ localeName, onChange, displayName }) => {
   const currentLocale = useCurrentLocale(i18nConfig);
   const { t } = useTranslation();
-  const [showDrawer, setShowDrawer] = useState(false);
+  const menuRef = useRef<HTMLUListElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const localesToShow = locales.filter(locale => locale !== currentLocale);
+  const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    const close = e => {
-      if (e.key === 'Escape') {
-        setShowDrawer(false);
-      }
-    };
-
-    window.addEventListener('keydown', close);
-    return () => window.removeEventListener('keydown', close);
-  });
+  useClickOutside(containerRef, setIsOpen);
 
   return (
-    <>
+    <div className="relative" ref={containerRef}>
       <button
-        title={t('common.languageDrawer')}
-        onClick={() => setShowDrawer(currentState => !currentState)}
-        aria-expanded={showDrawer}
-        aria-controls="locale-drawer"
+        aria-haspopup="true"
+        aria-expanded={isOpen}
+        aria-controls="menu-locale"
+        className="flex items-center rounded-md p-2 text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+        onClick={() => setIsOpen(currentState => !currentState)}
       >
-        <LanguageIcon width="18px" height="18px" variant="secondary" />
+        {localeName(currentLocale)}
+        {isOpen ? (
+          <ChevronUpIcon variant="secondary" className="pl-1" />
+        ) : (
+          <ChevronDownIcon variant="secondary" className="pl-1" />
+        )}
       </button>
-
-      <Portal>
-        <FocusLock disabled={!showDrawer} returnFocus={true}>
-          <div
-            role="presentation"
-            tabIndex={-1}
-            className={twMerge(
-              'fixed top-0 left-0 h-full w-full bg-colorBlack/[0.4] transition-opacity duration-150',
-              showDrawer ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0',
-            )}
-            onClick={() => setShowDrawer(false)}
-          />
-          <div
-            id="locale-drawer"
-            aria-modal="true"
-            aria-hidden={!showDrawer}
-            className={twMerge(
-              `fixed top-0 right-0 z-40 h-full w-[80vw] bg-colorWhite py-8 px-5 duration-300 ease-in-out `,
-              showDrawer ? 'translate-x-0' : 'translate-x-full',
-            )}
-          >
-            <div className="flex items-center">
-              <h2 className="text-xl font-semibold">{t('common.regionalSettings')}</h2>
-
-              <button className="ml-auto pl-2" onClick={() => setShowDrawer(false)}>
-                <CloseIcon width="18px" height="18px" variant="secondary" />
+      <FocusLock disabled={!isOpen} returnFocus={true}>
+        <ul
+          ref={menuRef}
+          className={twMerge(
+            'top-100 absolute right-0 z-10 w-32 translate-y-3 cursor-pointer rounded-md bg-colorWhite text-center text-base shadow dark:bg-gray-800',
+            isOpen ? 'block' : 'hidden',
+          )}
+          id="menu-locale"
+          role="menu"
+        >
+          {localesToShow?.map((availableLocale, index) => (
+            <li key={availableLocale} role="none">
+              <button
+                role="menuitem"
+                className="block w-full py-2 px-4 text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+                onClick={event => {
+                  const syntheticEvent = {
+                    ...event,
+                    target: { value: availableLocale },
+                  };
+                  onChange(syntheticEvent);
+                  setIsOpen(false);
+                }}
+                value={availableLocale}
+              >
+                {displayName(availableLocale).of(localeName(availableLocale))}
               </button>
-            </div>
-
-            <p className="mt-8 text-base font-semibold text-colorBlack"> {t('common.language')}</p>
-            <select
-              className="mt-2 block w-full rounded-md border border-gray300 py-2 px-2 text-sm"
-              defaultValue={currentLocale}
-              onChange={onChange}
-            >
-              {locales?.map(availableLocale => (
-                <option key={availableLocale} value={availableLocale}>
-                  {displayName(availableLocale).of(localeName(availableLocale))}
-                </option>
-              ))}
-            </select>
-          </div>
-        </FocusLock>
-      </Portal>
-    </>
+            </li>
+          ))}
+        </ul>
+      </FocusLock>
+    </div>
   );
 };

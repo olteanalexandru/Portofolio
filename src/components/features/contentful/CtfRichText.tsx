@@ -44,8 +44,39 @@ export const CtfRichText = ({ json, links }: ContentfulRichTextInterface) => {
   const baseOptions = contentfulBaseRichTextOptions({ links, json });
 
   return (
-    <article className="prose prose-sm max-w-none">
-      {documentToReactComponents(json, baseOptions)}
+    <article className="prose prose-sm max-w-none text-gray-900 dark:text-gray-200">
+      {documentToReactComponents(json, {
+        ...baseOptions,
+        renderNode: {
+          ...baseOptions.renderNode,
+          [BLOCKS.PARAGRAPH]: (node, children) => (
+            <p className="text-gray-900 dark:text-gray-200">{children}</p>
+          ),
+          [BLOCKS.HEADING_1]: (node, children) => (
+            <h1 className="text-gray-900 dark:text-gray-200">{children}</h1>
+          ),
+          [BLOCKS.HEADING_2]: (node, children) => (
+            <h2 className="text-gray-900 dark:text-gray-200">{children}</h2>
+          ),
+          [BLOCKS.HEADING_3]: (node, children) => (
+            <h3 className="text-gray-900 dark:text-gray-200">{children}</h3>
+          ),
+          [BLOCKS.HEADING_4]: (node, children) => (
+            <h4 className="text-gray-900 dark:text-gray-200">{children}</h4>
+          ),
+          [BLOCKS.HEADING_5]: (node, children) => (
+            <h5 className="text-gray-900 dark:text-gray-200">{children}</h5>
+          ),
+          [BLOCKS.HEADING_6]: (node, children) => (
+            <h6 className="text-gray-900 dark:text-gray-200">{children}</h6>
+          ),
+          hyperlink: (node, children) => (
+            <a href={node.data.uri} className="text-blue-600 underline dark:text-blue-400">
+              {children}
+            </a>
+          ),
+        },
+      })}
     </article>
   );
 };

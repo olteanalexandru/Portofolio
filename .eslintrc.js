@@ -16,6 +16,12 @@ module.exports = {
     react: {
       version: "detect",
     },
+    "import/resolver": {
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+        moduleDirectory: ["node_modules", "src/"]
+      }
+    }
   },
   extends: [
     "plugin:prettier/recommended",
@@ -53,6 +59,7 @@ module.exports = {
     "import/default": "off",
     "import/named": "off",
     "import/namespace": "off",
+    "import/no-unresolved": "off",
     "import/order": [
       "warn",
       {
@@ -71,9 +78,8 @@ module.exports = {
           },
         ],
         alphabetize: {
-          order:
-            "asc" /* sort in ascending order. Options: ['ignore', 'asc', 'desc'] */,
-          caseInsensitive: true /* ignore case. Options: [true, false] */,
+          order: "asc",
+          caseInsensitive: true
         },
       },
     ],
@@ -97,7 +103,6 @@ module.exports = {
         ecmaFeatures: {
           jsx: true,
         },
-        // typescript-eslint specific options
         warnOnUnsupportedTypeScriptVersion: true,
       },
       settings: {

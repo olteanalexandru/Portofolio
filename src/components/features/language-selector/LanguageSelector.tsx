@@ -30,6 +30,8 @@ export const LanguageSelector = () => {
 
     if (isChangeEvent(e)) {
       newLocale = e.target.value;
+    } else {
+      newLocale = (e.target as HTMLSelectElement).value; // Handle synthetic event
     }
 
     // set cookie for next-i18n-router
@@ -40,9 +42,9 @@ export const LanguageSelector = () => {
 
     // redirect to the new locale path
     if (currentLocale === i18nConfig.defaultLocale) {
-      router.push('/' + newLocale + currentPathname);
+      router.push('/' + newLocale + (currentPathname || ''));
     } else {
-      router.push(currentPathname.replace(`/${currentLocale}`, `/${newLocale}`));
+      router.push((currentPathname || '').replace(`/${currentLocale}`, `/${newLocale}`));
     }
 
     router.refresh();
